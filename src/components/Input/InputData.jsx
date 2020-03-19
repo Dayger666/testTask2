@@ -1,16 +1,27 @@
 import React from "react";
 import classes from './InputData.module.css'
+import {Field, reduxForm} from "redux-form";
+import {isNumber, requiredField, valueOfNumber} from "../../utils/validators/validators";
 
-const InputData = (props) => {
-
+const InputDataForm = (props) => {
     return (
-        <div className={classes.inputWrapper}>
-                <textarea  placeholder={'Enter field size'} className={classes.sizeInput}/>
+        <form className={classes.inputWrapper} onSubmit={props.handleSubmit}>
+            <Field placeholder={'Enter field size'} component={'input'} name={'size'} className={classes.sizeInput}  validate={[requiredField,isNumber,valueOfNumber]}/>
             <div>
-            <button className={classes.startBtn} type='button'>Start</button>
+                <button className={classes.startBtn}>Start</button>
             </div>
-        </div>
+        </form>
     )
 };
 
-export default InputData
+const InputDataReduxForm = reduxForm({form: 'sizeForm',})(InputDataForm);
+
+const InputData = (props) => {
+    const inputSize=(formData)=>{
+    console.log(formData)
+    };
+    return (<div>
+        <InputDataReduxForm onSubmit={inputSize}/>
+    </div>)
+};
+export default InputData;

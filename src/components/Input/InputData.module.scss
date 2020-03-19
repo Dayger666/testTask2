@@ -1,23 +1,23 @@
 .inputWrapper {
   .sizeInput {
 
-    width: 100px;
-    height: 60px;
+    width: 150px;
+    height: 90px;
     text-align: center;
     box-sizing: border-box;
     border: 2px solid #27aae1;
     background-color: white;
     resize: none;
-    font-size: 50px;
+    font-size: 75px;
     overflow: hidden;
     &::placeholder{
-      font-size: 10px;
-     padding-top: 20px;
+      font-size: 20px;
     }
 
   }
 
   .startBtn {
+    width: 100%;
     margin-top: 20px;
     cursor: pointer;
     background: #27aae1;
