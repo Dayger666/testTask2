@@ -3,7 +3,10 @@ import classes from './Square.module.css'
 
 let Square=(props)=>{
     return(<div className={classes.squareWrapper}>
-        <button className="square" onClick={()=>{props.onClick()}}>
+        <button className="square" onClick={()=>{
+            if(props.value===null){
+            props.onClick();
+                }}}>
             {props.value}
         </button>
     </div>)

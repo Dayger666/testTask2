@@ -1,4 +1,5 @@
 const SET_GAME_DATA='SET-GAME-DATA';
+const SET_GAME_STATUS='SET-GAME-STATUS';
 
 let initialState={
     size:null,
@@ -8,6 +9,11 @@ let initialState={
 const gameDataReducer=(state=initialState,action)=>{
     switch(action.type){
         case SET_GAME_DATA:
+            return {
+                ...state,
+                ...action.data,
+            };
+        case SET_GAME_STATUS:
             return {
                 ...state,
                 ...action.data,
@@ -23,6 +29,14 @@ export let setGameData=(size,figure='X',gameStart)=>{
         data: {
             size,
             figure,
+            gameStart,
+        }
+    }
+};
+export let setGameStatus=(gameStart)=>{
+    return {
+        type:SET_GAME_DATA,
+        data: {
             gameStart,
         }
     }

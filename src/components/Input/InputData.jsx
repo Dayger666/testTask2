@@ -6,7 +6,7 @@ import {textArea} from "../FormsControls/FormsControls";
 import cross from "../../images/cross.png"
 import circle from "../../images/circle.png"
 import {connect} from "react-redux";
-import {setGameData} from "../../redux/GameData-reducer";
+import {setGameData, setGameStatus} from "../../redux/GameData-reducer";
 
 
 const InputDataForm = (props) => {
@@ -31,8 +31,9 @@ const InputDataReduxForm = reduxForm({form: 'dataForm',})(InputDataForm);
 
 const InputData = (props) => {
     const inputSize = (formData) => {
-        props.setGameData(formData.size,formData.figure,true);
-        props.gameStart(formData.size,formData.figure='X');
+        props.setGameData(formData.size,formData.figure);
+        props.setGameStatus(true);
+        props.gameStart(formData.size,formData.figure);
     };
     return (<div>
         <InputDataReduxForm onSubmit={inputSize}/>
@@ -40,4 +41,4 @@ const InputData = (props) => {
     </div>)
 };
 
-export default connect(null, {setGameData})(InputData);
+export default connect(null, {setGameData,setGameStatus})(InputData);
