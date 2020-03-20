@@ -31,9 +31,9 @@ const InputDataReduxForm = reduxForm({form: 'dataForm',})(InputDataForm);
 
 const InputData = (props) => {
     const inputSize = (formData) => {
-        props.setGameData(formData.size,formData.figure);
+        props.setGameData(formData.size, formData.figure);
         props.setGameStatus(true);
-        props.gameStart(formData.size,formData.figure);
+        props.gameStart(formData.size, formData.figure);
     };
     return (<div>
         <InputDataReduxForm onSubmit={inputSize}/>
@@ -41,4 +41,4 @@ const InputData = (props) => {
     </div>)
 };
 
-export default connect(null, {setGameData,setGameStatus})(InputData);
+export default connect(null, {setGameData, setGameStatus})(InputData);

@@ -7,16 +7,17 @@ import {setGameStatus} from "../../redux/GameData-reducer";
 import winCalculate from "../../utils/winCalculate/winCalculate";
 
 const OutputGame = (props) => {
-let currentValue=props.values[props.values.length-1]||[];
+    let currentValue = props.values[props.values.length - 1] || [];
     let lines = [];
-    const history=props.values.map((i,move)=>{
-        const desc = move ? 'Go to move #' + move : 'Go to game start';
+    const history = props.values.map((arr, move) => {
+        const desc = move ? 'Go to move #' + move : false;
         return (
-            <li key={move}>
-                <button onClick={()=>{
-                    props.moveTo(move,props.figure);
-                }}>{desc}</button>
-            </li>
+            <div key={move}>
+                {desc ? <button onClick={() => {
+                    props.setGameStatus(true);
+                    props.moveTo(move, props.figure);
+                }}>{desc}</button> : "Steps"}
+            </div>
         );
     });
     for (let i = 0; i < props.size; i++) {
@@ -37,7 +38,7 @@ let currentValue=props.values[props.values.length-1]||[];
 
     return (
         <div className={classes.resultWrapper}>
-            <div className={classes.resultText}>{result?result:null}</div>
+            <div className={classes.resultText}>{result ? result : null}</div>
             <div className={classes.gameField}>
                 {lines}
             </div>

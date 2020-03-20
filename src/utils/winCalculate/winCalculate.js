@@ -16,7 +16,7 @@ const winCalculate = (values, size) => {
         }
 
     }
-    for (let i = 0; i < size-1; i++) {
+    for (let i = 0; i < size - 1; i++) {
         for (let k = i + (+size); k < values.length; k += (+size)) {
             if (values[i] === values[k] && values[i] !== null) {
                 count++;
@@ -35,12 +35,12 @@ const winCalculate = (values, size) => {
             count = 0;
         }
 
-        if (count === size-1) {
+        if (count === size - 1) {
             return 'Win ' + values[i];
         }
     }
-    for (let i = values.length-1; i > 0; i=i-size+1) {
-        if (values[i] === values[(+size) + i-1] && values[i] !== null) {
+    for (let i = values.length - 1; i > 0; i = i - size + 1) {
+        if (values[i] === values[(+size) + i - 1] && values[i] !== null) {
             count++;
         } else {
             count = 0;
@@ -49,7 +49,7 @@ const winCalculate = (values, size) => {
             return 'Win ' + values[i];
         }
     }
-    if (!values.includes(null)&&values.includes('X')) {
+    if (!values.includes(null) && values.includes('X')) {
         return 'Tie';
     }
 };
