@@ -23,19 +23,18 @@ const gameDataReducer=(state=initialState,action)=>{
     }
 
 };
-export let setGameData=(size,figure='X',gameStart)=>{
+export let setGameData=(size,figure='X')=>{
     return {
         type:SET_GAME_DATA,
         data: {
             size,
-            figure,
-            gameStart,
+            figure
         }
     }
 };
 export let setGameStatus=(gameStart)=>{
     return {
-        type:SET_GAME_DATA,
+        type:SET_GAME_STATUS,
         data: {
             gameStart,
         }

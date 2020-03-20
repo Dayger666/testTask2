@@ -5,7 +5,7 @@ import Square from "./Square/Square";
 let Line = (props) => {
     let squares = [];
     for (let i = 0; i < props.size; i++) {
-        squares.push(<Square value={props.values[props.lineNumber * props.size + i]} onClick={() => {
+        squares.push(<Square key={i} value={props.values[props.lineNumber * props.size + i]} onClick={() => {
             if ((props.figure === 'X' && props.drawX) || (props.figure === 'O' && !props.drawX)) {
                 props.drawFigure(props.lineNumber * props.size + i, props.figure);
             }
