@@ -1,0 +1,7 @@
+.lineWrapper{
+  &::after{
+    clear: both;
+    content: "";
+    display: table;
+  }
+}

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,qBAAO;EACL,UAAU,EAAE,IAAI;EAChB,MAAM,EAAE,cAAc;EACtB,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,IAAI;EACjB,WAAW,EAAE,IAAI;EACjB,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,MAAM;EAClB,KAAK,EAAE,IAAI",
+"sources": ["Square.module.scss"],
+"names": [],
+"file": "Square.module.css"
+}

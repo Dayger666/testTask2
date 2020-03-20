@@ -1,0 +1,6 @@
+.lineWrapper::after {
+  clear: both;
+  content: "";
+  display: table; }
+
+/*# sourceMappingURL=Line.module.css.map */

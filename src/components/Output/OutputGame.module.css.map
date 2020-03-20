@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,UAAU;EACR,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EAGvB,MAAM,EAAE,IAAI",
+"sources": ["OutputGame.module.scss"],
 "names": [],
 "file": "OutputGame.module.css"
 }
