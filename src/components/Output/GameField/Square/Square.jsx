@@ -4,7 +4,7 @@ import classes from './Square.module.css'
 let Square=(props)=>{
     return(<div className={classes.squareWrapper}>
         <button className="square" onClick={()=>{
-            if(props.value===null){
+            if(props.value===null&&props.gameStart){
             props.onClick();
                 }}}>
             {props.value}

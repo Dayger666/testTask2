@@ -10,7 +10,7 @@ let Line = (props) => {
                 props.drawFigure(props.lineNumber * props.size + i, props.figure);
             }
         }
-        } draw={props.draw}/>);
+        } draw={props.draw} gameStart={props.gameStart}/>);
     }
     return (
         <div className={classes.lineWrapper}>

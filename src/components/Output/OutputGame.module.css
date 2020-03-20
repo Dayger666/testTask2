@@ -1,6 +1,18 @@
+.resultWrapper .resultText {
+  display: flex;
+  justify-content: center;
+  font-size: 36px; }
 .resultWrapper .gameField {
   display: flex;
   justify-content: center;
-  margin: 10px; }
+  padding: 10px 10px 10px 10px; }
+.resultWrapper .history {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  overflow: auto;
+  width: 170px;
+  height: 200px;
+  margin: 10px 10px 10px 10px; }
 
 /*# sourceMappingURL=OutputGame.module.css.map */
