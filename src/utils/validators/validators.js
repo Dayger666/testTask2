@@ -6,7 +6,11 @@ export const isNumber=(value)=>{
     if(!isNaN(+value)) return undefined;
     return 'Incorrect input';
 };
-export const valueOfNumber=(value)=>{
-    if(value>=5&&value<=20) return undefined;
-    return 'Min value must be 5 and Max value must be 20';
+export const minValue=(value)=>{
+    if(value>=5) return undefined;
+    return 'Min value must be 5';
+};
+export const maxValue=(value)=>{
+    if(value<=20) return undefined;
+    return 'Max value must be 20';
 };

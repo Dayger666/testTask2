@@ -1,33 +1,29 @@
-
+const SET_GAME_DATA='SET-GAME-DATA';
 
 let initialState={
-    userId:null,
-    email:null,
-    login:null,
-    isAuth:false,
+    size:null,
+    figure:null,
 };
 const gameDataReducer=(state=initialState,action)=>{
     switch(action.type){
-        // case SET_USER_DATA:
-        //     return {
-        //         ...state,
-        //         ...action.data,
-        //     };
+        case SET_GAME_DATA:
+            return {
+                ...state,
+                ...action.data,
+            };
         default:
             return state;
     }
 
 };
-// export let setUserData=(userId,email,login,isAuth)=>{
-//     return {
-//         type:SET_USER_DATA,
-//         data: {
-//             userId,
-//             email,
-//             login,
-//             isAuth,
-//         }
-//     }
-// };
+export let setGameData=(size,figure)=>{
+    return {
+        type:SET_GAME_DATA,
+        data: {
+            size,
+            figure,
+        }
+    }
+};
 
 export default gameDataReducer;
