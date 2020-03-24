@@ -16,7 +16,7 @@ const winCalculate = (values, size) => {
         }
 
     }
-    for (let i = 0; i < size - 1; i++) {
+    for (let i = 0; i < size ; i++) {
         for (let k = i + (+size); k < values.length; k += (+size)) {
             if (values[i] === values[k] && values[i] !== null) {
                 count++;

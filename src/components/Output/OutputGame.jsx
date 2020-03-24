@@ -10,7 +10,7 @@ const OutputGame = (props) => {
     let currentValue = props.values[props.values.length - 1] || [];
     let lines = [];
     const history = props.values.map((arr, move) => {
-        const desc = move ? 'Go to move #' + move : false;
+        const desc = move ? 'Go to move ->' + move : false;
         return (
             <div key={move}>
                 {desc ? <button onClick={() => {
