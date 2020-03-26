@@ -10,18 +10,18 @@ function App(props) {
 
     const gameStart = (size) => {
         props.setValues([Array(size ** 2).fill(null)]);
-        setStepNumber(1);
-        setDrawX(true);
+        props.setStepNumber(1);
+        props.setDrawX(true);
     };
     const drawFigure = (number, figure) => {
         const stepValue = props.values.slice(0, props.stepNumber + 1);
         const squares = stepValue[props.stepNumber - 1].slice();
         squares[number] = figure;
-        props.setValues(stepValue.concat([
-            squares
-        ]));
+        console.log(props.values);
+        props.setValues([...props.values,squares]);
         props.setStepNumber(stepValue.length + 1);
         if (figure === 'X') {
+            console.log(figure);
             props.setDrawX(false);
         } else {
             props.setDrawX(true);

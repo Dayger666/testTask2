@@ -25,9 +25,11 @@ const OutputGame = (props) => {
                          drawFigure={props.drawFigure} drawX={props.drawX} gameStart={props.gameStart}/>)
     }
     if (props.gameStart) {
+        console.log(props.drawX);
         if (props.figure === 'O' && props.drawX) {
             props.drawFigure(moveAI(currentValue), 'X');
         } else if (props.figure === 'X' && !props.drawX) {
+            console.log(props.drawX);
             props.drawFigure(moveAI(currentValue), 'O');
         }
     }

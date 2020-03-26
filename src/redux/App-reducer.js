@@ -12,17 +12,18 @@ const appReducer = (state = initialState, action) => {
         case SET_VALUES:
             return {
                 ...state,
-                values:[...state.values,...action.data],
+                values: action.data,
             };
         case SET_DRAW_X:
+            console.log(action.data);
             return {
                 ...state,
-                ...action.data,
+                drawX:action.data,
             };
         case SET_STEP_NUMBER:
             return {
                 ...state,
-                ...action.data,
+                stepNumber:action.data,
             };
         default:
             return state;
@@ -30,27 +31,24 @@ const appReducer = (state = initialState, action) => {
 
 };
 export let setValues = (values) => {
+    console.log(values);
     return {
         type: SET_VALUES,
-        data: {
-            values,
-        }
+        data: values,
     }
 };
 export let setDrawX = (drawX) => {
+    console.log(drawX);
     return {
         type: SET_DRAW_X,
-        data: {
-            drawX,
-        }
+        data: drawX,
     }
 };
 export let setStepNumber = (stepNumber) => {
+    console.log(stepNumber);
     return {
         type: SET_STEP_NUMBER,
-        data: {
-            stepNumber,
-        }
+        data: stepNumber,
     }
 };
 
