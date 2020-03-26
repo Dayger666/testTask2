@@ -1,52 +1,58 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import InputData from "./components/Input/InputData";
 import OutputGame from "./components/Output/OutputGame";
+import {connect} from "react-redux";
+import {setGameStatus} from "./redux/GameData-reducer";
+import {setDrawX, setStepNumber, setValues} from "./redux/App-reducer";
 
-function App() {
+function App(props) {
 
-    const [values, setValues] = useState([]);
-    const [drawX, setDrawX] = useState(true);
-    const [stepNumber, setStepNumber] = useState(1);
     const gameStart = (size) => {
-        setValues([Array(size ** 2).fill(null)]);
+        props.setValues([Array(size ** 2).fill(null)]);
         setStepNumber(1);
         setDrawX(true);
     };
     const drawFigure = (number, figure) => {
-        const stepValue = values.slice(0, stepNumber + 1);
-        const squares = stepValue[stepNumber - 1].slice();
+        const stepValue = props.values.slice(0, props.stepNumber + 1);
+        const squares = stepValue[props.stepNumber - 1].slice();
         squares[number] = figure;
-        setValues(stepValue.concat([
+        props.setValues(stepValue.concat([
             squares
         ]));
-        setStepNumber(stepValue.length + 1);
+        props.setStepNumber(stepValue.length + 1);
         if (figure === 'X') {
-            setDrawX(false);
+            props.setDrawX(false);
         } else {
-            setDrawX(true);
+            props.setDrawX(true);
         }
     };
     const moveTo = (step, myFigure) => {
-        const stepValue = values.slice(0, step);
-        setStepNumber(step);
-        setValues(stepValue);
+        const stepValue = props.values.slice(0, step);
+        props.setStepNumber(step);
+        props.setValues(stepValue);
         if (myFigure === 'X' && (step % 2) === 0) {
-            setDrawX(false)
+            props.setDrawX(false)
         } else if (myFigure === 'X' && (step % 2) !== 0) {
-            setDrawX(true);
+            props.setDrawX(true);
         } else if (myFigure === 'O' && (step % 2) !== 0) {
-            setDrawX(true);
+            props.setDrawX(true);
         } else if (myFigure === 'O' && (step % 2) === 0) {
-            setDrawX(false);
+            props.setDrawX(false);
         }
     };
     return (
         <div className="app-wrapper">
             <InputData gameStart={gameStart}/>
-            <OutputGame moveTo={moveTo} values={values} drawFigure={drawFigure} drawX={drawX}/>
+            <OutputGame moveTo={moveTo} values={props.values} drawFigure={drawFigure} drawX={props.drawX}/>
         </div>
     );
 }
-
-export default App;
+let mapStateToProps = (state) => {
+    return {
+        values: state.GameInfo.values,
+        drawX: state.GameInfo.drawX,
+        stepNumber: state.GameInfo.stepNumber,
+    }
+};
+export default connect(mapStateToProps, {setGameStatus,setValues,setDrawX,setStepNumber})(App);
